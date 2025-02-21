@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit book</title>
+</head>
+<body>
+        <h1>Edit book</h1>
+            <form th:action="@{/updatecategory/{id}(id=${category.id})}" th:object="${category}" method="post">
+                <input type="hidden" th:field="*{id}" />
+                <p>Category: <input type="text" th:field="*{name}"></p>
+                <p><input type="submit" value="Save"></p>
+            </form>
+            <a href="/categorylist">Cancel</a>
+</body>
+</html>

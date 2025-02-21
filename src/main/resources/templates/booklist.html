@@ -26,10 +26,11 @@
                 <td th:text="${book.isbn}"></td>
                 <td th:text="${book.price}"></td>
                 <td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
-                <td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
+                <td><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-warning">Edit</a></td>
             </tr>
         </tbody>
     </table>
     <a href="/add" class="btn btn-success">Add a book</a>
+    <a href="/categorylist" class="btn btn-primary">Check categories</a>
 </body>
 </html>
