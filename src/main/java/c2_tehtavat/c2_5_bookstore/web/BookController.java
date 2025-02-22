@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import c2_tehtavat.c2_5_bookstore.domain.Book;
 import c2_tehtavat.c2_5_bookstore.domain.BookRepository;
+import c2_tehtavat.c2_5_bookstore.domain.CategoryRepository;
 
 @Controller
 public class BookController {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @GetMapping("/index")
     public String getIndex() {
@@ -38,6 +42,7 @@ public class BookController {
     @GetMapping("/add")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "addbook";
     }
 
@@ -52,6 +57,7 @@ public class BookController {
         Book book = bookRepository.findById(bookId)
             .orElseThrow(() -> new IllegalArgumentException("Invalid book Id: " + bookId));
         model.addAttribute("book", book);
+        model.addAttribute("categories", categoryRepository.findAll());
         return "editbook";
     }
 
