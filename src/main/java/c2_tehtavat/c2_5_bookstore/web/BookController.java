@@ -21,7 +21,7 @@ public class BookController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String getIndex() {
         
         return "index";

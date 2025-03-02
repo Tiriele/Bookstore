@@ -51,7 +51,7 @@ public class CategoryController {
 
     @PostMapping("/updatecategory/{id}")
     public String updateCategory(@PathVariable("id") Long categoryId, @ModelAttribute Category category) {
-        category.setId(categoryId);
+        category.setCategoryid(categoryId);
         categoryRepository.save(category);
         return "redirect:/categorylist";
     }
