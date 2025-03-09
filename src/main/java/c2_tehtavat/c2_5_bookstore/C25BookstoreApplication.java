@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import c2_tehtavat.c2_5_bookstore.domain.AppUser;
+import c2_tehtavat.c2_5_bookstore.domain.AppUserRepository;
 import c2_tehtavat.c2_5_bookstore.domain.Book;
 import c2_tehtavat.c2_5_bookstore.domain.BookRepository;
 import c2_tehtavat.c2_5_bookstore.domain.Category;
@@ -21,7 +23,7 @@ public class C25BookstoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(BookRepository bookrepository, CategoryRepository categoryrepository) {
+	public CommandLineRunner demo(BookRepository bookrepository, CategoryRepository categoryrepository, AppUserRepository userrepository) {
 		return (args) -> {
 			log.info("Save some sample categories");
 			categoryrepository.save(new Category("Scifi"));
@@ -32,6 +34,10 @@ public class C25BookstoreApplication {
 			bookrepository.save(new Book("nimi1", "kirjailija1", 0, "isbn1", 0, categoryrepository.findByName("Scifi").get(0)));
 			bookrepository.save(new Book("nimi2", "kirjailija2", 0, "isbn2", 0, categoryrepository.findByName("Comic").get(0)));
 			bookrepository.save(new Book("nimi3", "kirjailija3", 0, "isbn3", 0, categoryrepository.findByName("Fiction").get(0)));
+
+			userrepository.save(new AppUser("user", "$2a$10$MJ.8h0v8SP9EkY/jMaPTmuXUFyFRRi8ngbxhY1OYrBYERDi86NEMO", "user@email.com", "USER"));
+			userrepository.save(new AppUser("admin", "$2a$10$8MuW9YQbiqlN0SSFGkv5OegdjX9oSeeu6WZGJETEpXDXdEiWxYWna", "admin@email.com", "ADMIN"));
+
 
 			log.info("Fetch all the categories");
 			for (Category category : categoryrepository.findAll()) {
