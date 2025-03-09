@@ -21,10 +21,10 @@ public class BookController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @GetMapping("/")
-    public String getIndex() {
+    @GetMapping("/login")
+    public String login() {
         
-        return "index";
+        return "login";
     }
 
     @GetMapping("/booklist")
