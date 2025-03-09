@@ -35,13 +35,13 @@ public class C25BookstoreApplication {
 
 			log.info("Fetch all the categories");
 			for (Category category : categoryrepository.findAll()) {
-			log.info(category.toString());
+				log.info(category.toString());
+					};
 
 			log.info("Fetch all the books");
 			for (Book book : bookrepository.findAll()) {
- 			log.info(book.toString());
+		 	log.info(book.toString());
 				}
-			};
 		};
 	}
 
