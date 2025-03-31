@@ -27,10 +27,10 @@ public class BookRepositoryTest {
 
     @Test
     public void testFindById() {
-        Optional<Book> book = bookRepository.findById(4L);
+        Optional<Book> book = bookRepository.findById(3L);
         
         assertThat(book).isPresent();
-        assertThat(book.get().getAuthor()).isEqualTo("kirjailija4");
+        assertThat(book.get().getAuthor()).isEqualTo("kirjailija3");
     }
 
     @Test
