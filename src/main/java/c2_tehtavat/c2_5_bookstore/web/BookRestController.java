@@ -23,16 +23,19 @@ public class BookRestController {
     @Autowired
     private BookRepository bookRepository;
 
+    // Palauttaa kirjat JSON-muodossa selaimeen
     @GetMapping("/books")
     public @ResponseBody List<Book> getAllBooksRest() {
         return (List<Book>) bookRepository.findAll();
     }
 
+    // Palauttaa yhden kirjan JSON-muodossa selaimeen
     @GetMapping("/books/{id}")
     public @ResponseBody Optional<Book> getBookById (@PathVariable(name = "id") Long bookId) {
         return bookRepository.findById(bookId);
 }
 
+    // Lisää uuden kirjan tietokantaan
     @PostMapping("/books")
     public @ResponseBody Book addNewBookRest(@RequestBody Book newBook) {
         return bookRepository.save(newBook);

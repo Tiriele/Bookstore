@@ -1,6 +1,5 @@
 package c2_tehtavat.c2_5_bookstore.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +14,6 @@ import c2_tehtavat.c2_5_bookstore.domain.AppUserRepository;
 public class UserDetailServiceImpl implements UserDetailsService {
     private final AppUserRepository repository;
 
-    @Autowired
     public UserDetailServiceImpl(AppUserRepository userRepository) {
         this.repository = userRepository;
     }
